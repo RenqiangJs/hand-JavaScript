@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    Function.prototype.myCall = function(context = window,...args){
+      if(typeof this != 'function'){
+        throw new Error('类型错误')
+      }
+      let fn = Symbol('fn')
+      context[fn] = this
+      const res = context[fn](...args)
+      delete context[fn]
+      console.log(res)
+      return res
+    }
+    function test(){
+      return this.a
+    }
+    a=8
+  console.log(test.myCall({a:1}))  
+  </script>
+</body>
+</html>

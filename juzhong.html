@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .container{
+    width: 100vw;
+    text-align: center;
+  }
+  p{
+    /* transform: translate(0,20px); */
+    background-color: red;
+     transition-duration: 300ms
+
+  }
+</style>
+<body>
+  <div class="container">
+    <p class="ppp">123</p>
+    <button id="btn">按钮</button>
+  </div>
+  <script>
+    const btn = document.getElementById("btn")
+    let ys = 0
+    btn.addEventListener("click",function(){
+      console.log(document.getElementsByClassName("ppp")[0].style)
+      document.getElementsByClassName("ppp")[0].style.transform = 'translate(0,20px)'
+    })
+  </script>
+</body>
+</html>

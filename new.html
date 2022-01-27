@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function myNew(Ctr,...args){
+      const newObj = Object.create(Ctr.prototype)
+      const res = Ctr.apply(newObj,args)
+      const isObj = typeof res ==="object" && res !==null 
+      const isFun = typeof res === "function"
+      return isObject || isFunction ? res : obj;
+      // return res ? res : newObj
+    }
+    function Person(name) {
+  this.name = name
+}
+const ne = myNew(Date,'2022-1-22')
+console.log(ne.valueOf())
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const arr = [7,6,3,16,8,5,1,9]
+    // function sort(arr){
+    //   const len = arr.length
+    //   for(let i =0;i<len;i++){
+    //     for(let j = 0;j<len-i-1;j++){
+    //       if(arr[j]>arr[j+1]){
+    //        [arr[j],arr[j+1]] = [arr[j+1],arr[j]]
+    //       }
+    //     }
+    //   }
+    //   console.log(arr)
+    // }
+
+
+      // function sort(arr){
+      //   let low = 0;
+      //   let hig = arr.length-1
+      //   while(low<hig){
+      //     for(let i =low;i<hig;i++){
+      //       if(arr[i]>arr[i+1]){
+      //         [arr[i],arr[i+1]] = [arr[i+1],arr[i]]
+      //       }
+      //     }
+      //     hig--
+      //     for(let i = hig;i>low;i--){
+      //       if(arr[i]<arr[i-1]){
+      //         [arr[i-1],arr[i]] = [arr[i],arr[i-1]]
+      //       }
+      //     }
+      //     low ++
+      //   }
+      // }
+    function sort(arr){
+      if(arr.length === 0) return
+      let len = arr.length,preIndex,currentValue
+      for (let i = 1; i < len; i++) {
+        currentValue = arr[i]
+        preIndex = i - 1
+        while(preIndex >= 0 && currentValue < arr[preIndex]){
+          arr[preIndex+1] = arr[preIndex]
+          preIndex--
+        }
+        // debugger
+        arr[preIndex + 1] = currentValue
+      }
+      console.log(arr);
+    }
+    sort(arr)
+
+  </script>
+</body>
+</html>

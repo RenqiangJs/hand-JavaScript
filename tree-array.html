@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+const arrs2 = [
+  {
+    id: 1,
+    pid: 0,
+    title: 'html',
+    children: [
+      {
+        id: 2,
+        pid: 1,
+        title: 'body',
+        children: [
+          {
+            id: 3,
+            pid: 2,
+            title: 'div',
+            children: [
+              { id: 5, pid: 3, title: 'a', children: [{ id: 7, pid: 5, title: 'span' }] },
+              { id: 5, pid: 3, title: 'a', children: [] }
+            ]
+          },
+          { id: 4, pid: 2, title: 'div' }
+        ]
+      }
+    ]
+  }
+]
+const arrs1 = [
+  { id: 4, pid: 2, title: 'div' },
+  { id: 5, pid: 3, title: 'a' },
+  { id: 6, pid: 3, title: 'a' },
+  { id: 7, pid: 5, title: 'span' },
+  { id: 10, pid: 0, title: 'html' },
+  { id: 2, pid: 10, title: 'body' },
+  { id: 3, pid: 2, title: 'div' },
+]
+function treeing (arr) {
+  let newArr = []
+  let map = {}
+  for(let item of arr){
+    item.children =[]  // 原始数组中的每个item也加上了children项
+    map[item.id] = {...item}
+  }
+  // debugger
+  for(let i =0;i<arr.length;i++){
+    let pid = arr[i].pid   // 取到每一项的pid
+    let item = map[pid] || map[arr[i].id]  // 拿每一项的pid在map里面查找,如果能找到对应的id,则将其push到children,如果找不到说明是根节点
+    // debugger
+    if(map[pid]){
+      map[pid].children.push(arr[i])
+    }else{
+      newArr.push(item)
+    }
+  }
+  console.log(newArr)
+  return newArr
+}
+treeing(arrs1)
+  </script>
+</body>
+</html>
